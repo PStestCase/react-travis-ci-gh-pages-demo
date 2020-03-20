@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - 12.10.0
+cache: npm
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN
+  local_dir: build
+  on:
+    branch: master
+notifications:
+  slack: traviscinotif-ick8871:z3leAIJVu9XzVlLlT86hvsES
